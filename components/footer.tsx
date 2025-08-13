@@ -19,75 +19,60 @@ export default function Footer() {
 	return (
 		<footer className='bg-gray-900 text-white'>
 			<div className='container mx-auto px-4 py-16'>
-				<div className='grid md:grid-cols-2 lg:grid-cols-4 gap-12'>
+				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 text-center sm:text-left'>
 					{/* Company Info */}
 					<div className='lg:col-span-1'>
 						<div
-							className='flex items-center gap-2 mb-4 cursor-pointer '
+							className='flex flex-col sm:flex-row items-center sm:items-start gap-2 mb-6 cursor-pointer'
 							onClick={() => scrollToSection('hero')}
 						>
-							<div className='relative'>
-								<div
-									className={`bg-white rounded-xl flex items-center justify-center  transition-all duration-500 `}
-								>
-									<Image
-										src='/logo1.png'
-										alt='Logo'
-										width={36}
-										height={36}
-									/>
-								</div>
+							<div className='bg-white rounded-xl flex items-center justify-center p-1'>
+								<Image
+									src='/logo1.png'
+									alt='Logo'
+									width={40}
+									height={40}
+								/>
 							</div>
-							<div className='hidden sm:block'>
-								<span
-									className={`text-gray-200 dark:text-gray-100 transition-all duration-500 `}
-								>
-									Yuridik kadrlarni qayta tayyorlash
-								</span>
-								<div
-									className={`text-gray-200 dark:text-gray-100 transition-all duration-500`}
-								>
-									va malakasini oshirish instituti
-								</div>
+							<div className='text-gray-200 text-sm leading-snug mt-2 sm:mt-0'>
+								<p>Yuridik kadrlarni qayta tayyorlash</p>
+								<p>va malakasini oshirish instituti</p>
 							</div>
 						</div>
 
 						<div className='space-y-4 text-gray-300'>
-							<div className='flex items-start space-x-3'>
-								<Phone className='h-5 w-5 mt-1 text-blue-400' />
+							<div className='flex flex-col sm:flex-row items-center sm:items-start gap-2'>
+								<Phone className='h-5 w-5 text-blue-400' />
 								<div>
-									<div className='font-medium text-white'>
+									<p className='font-medium text-white'>
 										Bog'lanish
-									</div>
-									<div>71-200-02-35</div>
+									</p>
+									<p>71-200-02-35</p>
 								</div>
 							</div>
 
-							<div className='flex items-start space-x-3'>
-								<Mail className='h-5 w-5 mt-1 text-blue-400' />
+							<div className='flex flex-col sm:flex-row items-center sm:items-start gap-2'>
+								<Mail className='h-5 w-5 text-blue-400' />
 								<div>
-									<div className='font-medium text-white'>
+									<p className='font-medium text-white'>
 										Email
-									</div>
-									<div>uzmarkaz@adliya.uz</div>
+									</p>
+									<p>uzmarkaz@adliya.uz</p>
 								</div>
 							</div>
 
-							<div className='flex items-start space-x-3'>
-								<MapPin className='h-5 w-5 mt-1 text-blue-400' />
+							<div className='flex flex-col sm:flex-row items-center sm:items-start gap-2'>
+								<MapPin className='h-5 w-5 text-blue-400' />
 								<div>
-									<div className='font-medium text-white'>
+									<p className='font-medium text-white'>
 										Manzil
-									</div>
-									<div>
-										Toshkent sh. Mirzo ulug'bek tumani,
-										
-									</div>
+									</p>
+									<p>Toshkent sh., Mirzo Ulug‘bek tumani</p>
 								</div>
 							</div>
 						</div>
 
-						<div className='flex space-x-4 mt-6'>
+						<div className='flex justify-center sm:justify-start space-x-4 mt-6'>
 							<Button
 								variant='ghost'
 								size='icon'
@@ -118,45 +103,24 @@ export default function Footer() {
 							Biz haqimizda
 						</h3>
 						<ul className='space-y-3 text-gray-300'>
-							<li>
-								<button
-									onClick={() => scrollToSection('about')}
-									className='hover:text-blue-400 transition-colors'
-								>
-									Biz haqimizda
-								</button>
-							</li>
-							<li>
-								<button
-									onClick={() => scrollToSection('courses')}
-									className='hover:text-blue-400 transition-colors'
-								>
-									Kurslar
-								</button>
-							</li>
-							<li>
-								<button
-									onClick={() =>
-										scrollToSection('statistics')
-									}
-									className='hover:text-blue-400 transition-colors'
-								>
-									Modullar
-								</button>
-							</li>
-							<li>
-								<button
-									onClick={() => scrollToSection('partners')}
-									className='hover:text-blue-400 transition-colors'
-								>
-									Mutaxassislar
-								</button>
-							</li>
-							<li>
-								<button className='hover:text-blue-400 transition-colors'>
-									Webinarlar
-								</button>
-							</li>
+							{[
+								{ label: 'Biz haqimizda', id: 'about' },
+								{ label: 'Kurslar', id: 'courses' },
+								{ label: 'Modullar', id: 'statistics' },
+								{ label: 'Mutaxassislar', id: 'partners' },
+								{ label: 'Webinarlar', id: '' },
+							].map((link, i) => (
+								<li key={i}>
+									<button
+										onClick={() =>
+											link.id && scrollToSection(link.id)
+										}
+										className='hover:text-blue-400 transition-colors'
+									>
+										{link.label}
+									</button>
+								</li>
+							))}
 						</ul>
 					</div>
 
@@ -166,46 +130,22 @@ export default function Footer() {
 							Foydali manzillar
 						</h3>
 						<ul className='space-y-3 text-gray-300'>
-							<li>
-								<a
-									href='#'
-									className='hover:text-blue-400 transition-colors'
-								>
-									Web sayt
-								</a>
-							</li>
-							<li>
-								<a
-									href='#'
-									className='hover:text-blue-400 transition-colors'
-								>
-									Masofaviy ta'lim
-								</a>
-							</li>
-							<li>
-								<a
-									href='#'
-									className='hover:text-blue-400 transition-colors'
-								>
-									Hamkorlar
-								</a>
-							</li>
-							<li>
-								<a
-									href='#'
-									className='hover:text-blue-400 transition-colors'
-								>
-									Sertifikat
-								</a>
-							</li>
-							<li>
-								<a
-									href='#'
-									className='hover:text-blue-400 transition-colors'
-								>
-									Adliya vazirligi
-								</a>
-							</li>
+							{[
+								'Web sayt',
+								"Masofaviy ta'lim",
+								'Hamkorlar',
+								'Sertifikat',
+								'Adliya vazirligi',
+							].map((item, i) => (
+								<li key={i}>
+									<a
+										href='#'
+										className='hover:text-blue-400 transition-colors'
+									>
+										{item}
+									</a>
+								</li>
+							))}
 						</ul>
 					</div>
 
@@ -223,11 +163,10 @@ export default function Footer() {
 									Bog'lanish
 								</a>
 							</li>
-
 							<li>
 								<Button
 									onClick={handleLogin}
-									className='bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white mt-4'
+									className='bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white mt-4 w-full sm:w-auto'
 								>
 									Tizimga kirish
 								</Button>
@@ -236,12 +175,9 @@ export default function Footer() {
 					</div>
 				</div>
 
-				<div className='border-t border-gray-800 mt-12 pt-8 text-center text-gray-400'>
-					<p>
-						&copy; 2025 Yuridik kadrlarni qayta tayyorlash va
-						malakasini oshirish instituti. Barcha huquqlar
-						himoyalangan.
-					</p>
+				<div className='border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm'>
+					&copy; 2025 Yuridik kadrlarni qayta tayyorlash va malakasini
+					oshirish instituti. Barcha huquqlar himoyalangan.
 				</div>
 			</div>
 		</footer>
