@@ -33,7 +33,7 @@ const specialists: Specialist[] = [
 		positionEn: 'Doctor of Legal Sciences',
 		rating: 5,
 		locationEn: 'Tashkent',
-		image: '/Shafkatbek.jpg',
+		image: 'shavkat.jpg',
 		certificates: [
 			'Yuridik fanlar doktori',
 			'Arbitraj sudyasi',
