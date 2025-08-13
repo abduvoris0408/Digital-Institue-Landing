@@ -187,7 +187,6 @@ export default function Header() {
 	}, [slides.length])
 
 	const scrollToSection = (sectionId: string) => {
-		// If we're on a course detail page, navigate to home first
 		if (pathname.startsWith('/courses/')) {
 			router.push(`/#${sectionId}`)
 			setIsMobileMenuOpen(false)
@@ -195,7 +194,6 @@ export default function Header() {
 			return
 		}
 
-		// If we're on the home page, scroll to section
 		const element = document.getElementById(sectionId)
 		if (element) {
 			element.scrollIntoView({
@@ -206,7 +204,6 @@ export default function Header() {
 			setIsMobileMenuOpen(false)
 			setShowSpecialistsDropdown(false)
 		} else {
-			// If element not found, navigate to home with hash
 			router.push(`/#${sectionId}`)
 			setIsMobileMenuOpen(false)
 			setShowSpecialistsDropdown(false)
@@ -318,7 +315,7 @@ export default function Header() {
 				}`}
 			>
 				<div
-					className={`container mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-700 py-2`}
+					className={`container mx-auto px-4 sm:px-6  transition-all duration-700 py-2`}
 				>
 					<div
 						className={`flex items-center justify-between transition-all duration-700 ${

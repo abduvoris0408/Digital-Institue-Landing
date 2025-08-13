@@ -113,7 +113,7 @@ export default function About() {
 			<div className='container mx-auto px-4 relative z-10'>
 				<div className='text-center mb-16'>
 					<h2
-						className={`text-4xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-6 ${
+						className={`text-3xl md:text-4xl  font-bold text-gray-900 dark:text-white mb-6 ${
 							isVisible ? 'animate-fade-in' : 'opacity-0'
 						}`}
 					>
@@ -151,7 +151,7 @@ export default function About() {
 								>
 									<feature.icon className='h-7 w-7 text-white' />
 								</div>
-								<h3 className='text-lg font-serif font-semibold text-gray-900 dark:text-white mb-3'>
+								<h3 className='text-lg font-semibold text-gray-900 dark:text-white mb-3'>
 									{feature.title}
 								</h3>
 								<p className='text-sm text-gray-600 dark:text-gray-300 leading-relaxed'>

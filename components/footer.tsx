@@ -99,7 +99,7 @@ export default function Footer() {
 
 					{/* Quick Links */}
 					<div>
-						<h3 className='font-serif font-semibold text-xl mb-6'>
+						<h3 className=' font-semibold text-xl mb-6'>
 							Biz haqimizda
 						</h3>
 						<ul className='space-y-3 text-gray-300'>
@@ -126,7 +126,7 @@ export default function Footer() {
 
 					{/* Services */}
 					<div>
-						<h3 className='font-serif font-semibold text-xl mb-6'>
+						<h3 className=' font-semibold text-xl mb-6'>
 							Foydali manzillar
 						</h3>
 						<ul className='space-y-3 text-gray-300'>
@@ -151,9 +151,7 @@ export default function Footer() {
 
 					{/* Contact */}
 					<div>
-						<h3 className='font-serif font-semibold text-xl mb-6'>
-							Aloqa
-						</h3>
+						<h3 className=' font-semibold text-xl mb-6'>Aloqa</h3>
 						<ul className='space-y-3 text-gray-300'>
 							<li>
 								<a

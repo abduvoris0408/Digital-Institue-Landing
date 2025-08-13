@@ -102,7 +102,7 @@ export default function Statistics() {
 					{/* Content */}
 					<div>
 						<h2
-							className={`text-4xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-6 ${
+							className={`text-3xl md:text-4xl  font-bold text-gray-900 dark:text-white mb-6 ${
 								isVisible ? 'animate-fade-in' : 'opacity-0'
 							}`}
 						>

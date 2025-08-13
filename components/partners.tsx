@@ -73,7 +73,7 @@ export default function Partners() {
 			<div className='container mx-auto px-4'>
 				<div className='text-center mb-16'>
 					<div
-						className={`inline-flex items-center gap-2 px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium mb-6 ${
+						className={`inline-flex items-center gap-2 px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium border border-purple-400 ${
 							isVisible ? 'animate-fade-in' : 'opacity-0'
 						}`}
 					>
@@ -99,7 +99,6 @@ export default function Partners() {
 					</div>
 				</div>
 
-				{/* CTA Block */}
 				<div
 					className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
 					style={{ animationDelay: '0.8s' }}
@@ -177,13 +176,13 @@ function PartnerCard({
 	description: string
 }) {
 	return (
-		<div className='group relative  p-8  hover:shadow-2xl transition-all duration-500 flex-shrink-0 w-60'>
-			<div className='absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+		<div className='group relative p-8 transition-all duration-500 flex-shrink-0 h-60 w-60'>
+			<div className='absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
 			<div className='relative z-10'>
 				<div className='flex items-center justify-center mb-6'>
-					<div className='w-40 h-40 bg-gray-50 dark:bg-gray-700 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300'>
+					<div className='w-40 h-40 bg-gray-50 dark:bg-gray-700 rounded-2xl flex items-center justify-center  transition-transform duration-300'>
 						<img
-							src={logo || '/placeholder.svg'}
+							src={logo}
 							alt={name}
 							className='max-w-16 max-h-16 object-contain'
 						/>

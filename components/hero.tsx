@@ -68,6 +68,25 @@ export default function Hero() {
 				onClick: () => scrollToSection('about'),
 			},
 		},
+		{
+			id: 3,
+			image: '/slider2.jpg',
+			description: "Malakali yuristlar uchun zamonaviy o'quv dasturlari",
+			action: {
+				label: 'Batafsil',
+				onClick: () => scrollToSection('courses'),
+			},
+		},
+		{
+			id: 4,
+			image: '/slider1.jpg',
+			description:
+				'Davlat tomonidan tan olingan sertifikat olish imkoniyati',
+			action: {
+				label: 'Batafsil',
+				onClick: () => scrollToSection('about'),
+			},
+		},
 	]
 
 	useEffect(() => {
@@ -82,16 +101,6 @@ export default function Hero() {
 		if (element) {
 			element.scrollIntoView({ behavior: 'smooth' })
 		}
-	}
-
-	const nextSlide = () => {
-		setCurrentSlide(prev => (prev + 1) % heroSlides.length)
-	}
-
-	const prevSlide = () => {
-		setCurrentSlide(
-			prev => (prev - 1 + heroSlides.length) % heroSlides.length
-		)
 	}
 
 	return (
@@ -190,6 +199,7 @@ export default function Hero() {
 								showDots={true}
 								showArrows={true}
 								className='shadow-2xl'
+								loop={false}
 							/>
 						</div>
 					</MotionWrapper>
