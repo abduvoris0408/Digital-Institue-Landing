@@ -96,7 +96,7 @@ export default function Carousel({
 							{/* Matn pastda */}
 							<div className='absolute inset-0 flex items-end justify-center pb-10'>
 								<div className='text-center text-white max-w-4xl px-6 animate-fade-in'>
-									<h2 className='text-4xl md:text-6xl font-bold mb-4 animate-slide-up'>
+									<h2 className='text-2xl md:text-4xl font-bold mb-4 animate-slide-up'>
 										{item.title}
 									</h2>
 									{item.subtitle && (

@@ -97,7 +97,7 @@ export default function Statistics() {
 			ref={sectionRef}
 			className='py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20'
 		>
-			<div className='container mx-auto px-4'>
+			<div className='container mx-auto px-6'>
 				<div className='grid lg:grid-cols-2 gap-16 items-center'>
 					{/* Content */}
 					<div>

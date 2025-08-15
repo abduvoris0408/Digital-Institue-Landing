@@ -315,7 +315,7 @@ export default function Header() {
 				}`}
 			>
 				<div
-					className={`container mx-auto px-4 sm:px-6  transition-all duration-700 py-2`}
+					className={`container mx-auto px-6 sm:px-6  transition-all duration-700 py-2`}
 				>
 					<div
 						className={`flex items-center justify-between transition-all duration-700 ${
@@ -342,14 +342,14 @@ export default function Header() {
 							</div>
 							<div className='hidden sm:block'>
 								<span
-									className={`text-gray-600 dark:text-gray-400 transition-all duration-500 ${
+									className={`text-gray-600 dark:text-gray-200 transition-all duration-500 ${
 										isScrolled ? 'text-xs' : 'text-xs'
 									}`}
 								>
 									Yuridik kadrlarni qayta tayyorlash
 								</span>
 								<div
-									className={`text-gray-600 dark:text-gray-400 transition-all duration-500 ${
+									className={`text-gray-600 dark:text-gray-200 transition-all duration-500 ${
 										isScrolled ? 'text-xs' : 'text-xs'
 									}`}
 								>

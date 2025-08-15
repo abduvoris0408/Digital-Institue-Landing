@@ -4,55 +4,27 @@ import Carousel from '@/components/carousel'
 import MotionWrapper from '@/components/motion-wrapper'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, BookOpen, Play } from 'lucide-react'
-import { useEffect, useState } from 'react'
 
 export default function Hero() {
-	const [currentSlide, setCurrentSlide] = useState(0)
+	const heroContent = {
+		badge: 'Yuridik kadrlarni qayta tayyorlash va malakasini oshirish instituti',
+		title: 'Raqamli institut platformasi',
+		subtitle:
+			"Yuridik sohadagi eng so'nggi bilimlar va amaliy ko'nikmalarni o'rganing. Professional rivojlanish yo'lida ishonchli hamkorimiz bo'ling.",
+		stats: [
+			{ value: '2500+', label: "Yurist o'quvchilar" },
+			{ value: '150+', label: 'Yuridik kurslar' },
+			{ value: '98%', label: 'Muvaffaqiyat darajasi' },
+		],
+	}
 
-	const heroSlides = [
-		{
-			badge: 'Yuridik kadrlarni qayta tayyorlash va malakasini oshirish instituti',
-			title: 'Uzluksiz kasbiy rivojlantirish platformasi',
-			subtitle:
-				"Yuridik sohadagi eng so'nggi bilimlar va amaliy ko'nikmalarni o'rganing. Professional rivojlanish yo'lida ishonchli hamkoringiz bo'ling.",
-			image: '/placeholder.svg?height=600&width=800',
-			stats: [
-				{ value: '2500+', label: "Yurist o'quvchilar" },
-				{ value: '150+', label: 'Yuridik kurslar' },
-				{ value: '98%', label: 'Muvaffaqiyat darajasi' },
-			],
-		},
-		{
-			badge: "Huquqiy ta'lim sohasida yetakchi",
-			title: 'Zamonaviy yuridik bilimlar markazi',
-			subtitle:
-				"Davlat va xususiy sektor uchun malakali yuridik kadrlar tayyorlash. Amaliy ko'nikmalar va nazariy bilimlarni mukammal uyg'unlashtiramiz.",
-			image: '/placeholder.svg?height=600&width=800',
-			stats: [
-				{ value: '15+', label: 'Yillik tajriba' },
-				{ value: '50+', label: "Ekspert o'qituvchilar" },
-				{ value: '95%', label: 'Ishga joylashish' },
-			],
-		},
-		{
-			badge: "Sertifikatlangan ta'lim dasturlari",
-			title: 'Professional yuristlar uchun maxsus kurslar',
-			subtitle:
-				"Fuqarolik, jinoyat, ma'muriy va boshqa huquq sohalarida chuqur bilimlar. Amaliy mashg'ulotlar va real ish tajribasi.",
-			image: '/placeholder.svg?height=600&width=800',
-			stats: [
-				{ value: '25+', label: 'Huquq sohalari' },
-				{ value: '1000+', label: 'Bitiruvchilar' },
-				{ value: '100%', label: 'Sertifikat olish' },
-			],
-		},
-	]
-
-	const carouselItems = [
+	const courseItems = [
 		{
 			id: 1,
-			image: '/slider2.jpg',
-			description: "Malakali yuristlar uchun zamonaviy o'quv dasturlari",
+			image: '/slider1.jpg',
+			title: 'Mediatorlik kurslari',
+			description:
+				"Nizolarni tinch yo'l bilan hal qilish bo'yicha professional tayyorgarlik",
 			action: {
 				label: 'Batafsil',
 				onClick: () => scrollToSection('courses'),
@@ -60,18 +32,21 @@ export default function Hero() {
 		},
 		{
 			id: 2,
-			image: '/slider1.jpg',
+			image: '/slider2.jpg',
+			title: 'Qisqa muddatli kurslar',
 			description:
-				'Davlat tomonidan tan olingan sertifikat olish imkoniyati',
+				"Tezkor o'qitish dasturlari orqali yangi bilimlarni egallash",
 			action: {
 				label: 'Batafsil',
-				onClick: () => scrollToSection('about'),
+				onClick: () => scrollToSection('courses'),
 			},
 		},
 		{
 			id: 3,
-			image: '/slider2.jpg',
-			description: "Malakali yuristlar uchun zamonaviy o'quv dasturlari",
+			image: '/slider3.jpeg',
+			title: 'Malaka oshirish kurslari',
+			description:
+				'Mavjud bilimlarni yangilash va chuqurlashtirish dasturlari',
 			action: {
 				label: 'Batafsil',
 				onClick: () => scrollToSection('courses'),
@@ -79,22 +54,26 @@ export default function Hero() {
 		},
 		{
 			id: 4,
-			image: '/slider1.jpg',
-			description:
-				'Davlat tomonidan tan olingan sertifikat olish imkoniyati',
+			image: '/slider4.jpeg',
+			title: 'Qayta tayyorlash kurslari',
+			description: "Yangi mutaxassislik yo'nalishlarini o'zlashtirish",
 			action: {
 				label: 'Batafsil',
-				onClick: () => scrollToSection('about'),
+				onClick: () => scrollToSection('courses'),
+			},
+		},
+		{
+			id: 5,
+			image: '/slider1.jpg',
+			title: 'Arxiv ishi kurslari',
+			description:
+				"Huquqiy hujjatlar bilan ishlash va arxivlash bo'yicha o'qitish",
+			action: {
+				label: 'Batafsil',
+				onClick: () => scrollToSection('courses'),
 			},
 		},
 	]
-
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setCurrentSlide(prev => (prev + 1) % heroSlides.length)
-		}, 6000)
-		return () => clearInterval(interval)
-	}, [heroSlides.length])
 
 	const scrollToSection = (sectionId: string) => {
 		const element = document.getElementById(sectionId)
@@ -110,42 +89,44 @@ export default function Hero() {
 		>
 			<div className='absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20' />
 
-			<div className='container mx-auto px-4 relative z-10'>
+			<div className='container mx-auto px-6 relative z-10'>
 				<div className='grid lg:grid-cols-2 gap-12 items-center'>
 					<MotionWrapper animation='fade-in' delay={0.2}>
 						<div className='space-y-6'>
+							<div className='inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium mb-4'>
+								{heroContent.badge}
+							</div>
+
 							<h1 className='text-4xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight'>
-								{heroSlides[currentSlide].title
-									.split(' ')
-									.map((word, i) => (
-										<span
-											key={i}
-											className='inline animate-fade-in-up'
-											style={{
-												animationDelay: `${i * 0.1}s`,
-											}}
-										>
-											{word === 'kasbiy' ? (
-												<span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 hover-glow'>
-													{word}
-												</span>
-											) : word === 'yuridik' ? (
-												<span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600 hover-glow'>
-													{word}
-												</span>
-											) : word === 'yuristlar' ? (
-												<span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 hover-glow'>
-													{word}
-												</span>
-											) : (
-												word
-											)}{' '}
-										</span>
-									))}
+								{heroContent.title.split(' ').map((word, i) => (
+									<span
+										key={i}
+										className='inline animate-fade-in-up'
+										style={{
+											animationDelay: `${i * 0.1}s`,
+										}}
+									>
+										{word === 'Raqamli' ? (
+											<span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 hover-glow'>
+												{word}
+											</span>
+										) : word === 'institut' ? (
+											<span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600 hover-glow'>
+												{word}
+											</span>
+										) : word === 'platformasi' ? (
+											<span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 hover-glow'>
+												{word}
+											</span>
+										) : (
+											word
+										)}{' '}
+									</span>
+								))}
 							</h1>
 
 							<p className='text-xl text-gray-600 dark:text-gray-300 leading-relaxed animate-slide-up'>
-								{heroSlides[currentSlide].subtitle}
+								{heroContent.subtitle}
 							</p>
 
 							<div className='flex flex-col sm:flex-row gap-4 animate-scale-in'>
@@ -171,21 +152,19 @@ export default function Hero() {
 							</div>
 
 							<div className='grid grid-cols-3 gap-8 pt-8 border-t border-gray-200 dark:border-gray-700 animate-fade-in-up'>
-								{heroSlides[currentSlide].stats.map(
-									(stat, index) => (
-										<div
-											key={index}
-											className=' cursor-pointer hover-scale'
-										>
-											<div className='text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 '>
-												{stat.value}
-											</div>
-											<div className='text-sm text-gray-600 dark:text-gray-400 font-medium'>
-												{stat.label}
-											</div>
+								{heroContent.stats.map((stat, index) => (
+									<div
+										key={index}
+										className='cursor-pointer hover-scale'
+									>
+										<div className='text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600'>
+											{stat.value}
 										</div>
-									)
-								)}
+										<div className='text-sm text-gray-600 dark:text-gray-400 font-medium'>
+											{stat.label}
+										</div>
+									</div>
+								))}
 							</div>
 						</div>
 					</MotionWrapper>
@@ -193,13 +172,11 @@ export default function Hero() {
 					<MotionWrapper animation='scale-in' delay={0.4}>
 						<div className='relative'>
 							<Carousel
-								items={carouselItems}
+								items={courseItems}
 								autoPlay={true}
-								interval={8000}
+								interval={5000}
 								showDots={true}
 								showArrows={true}
-								className='shadow-2xl'
-								loop={false}
 							/>
 						</div>
 					</MotionWrapper>

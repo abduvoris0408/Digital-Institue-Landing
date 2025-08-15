@@ -97,7 +97,7 @@ export default function About() {
 		<section
 			id='about'
 			ref={sectionRef}
-			className='py-20 relative overflow-hidden'
+			className='py-5 relative overflow-hidden'
 		>
 			<div className='absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-purple-900/10' />
 
@@ -110,7 +110,7 @@ export default function About() {
 				<div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-400/5 rounded-full blur-3xl animate-pulse-slow' />
 			</div>
 
-			<div className='container mx-auto px-4 relative z-10'>
+			<div className='container mx-auto px-6 relative z-10'>
 				<div className='text-center mb-16'>
 					<h2
 						className={`text-3xl md:text-4xl  font-bold text-gray-900 dark:text-white mb-6 ${
@@ -136,7 +136,7 @@ export default function About() {
 					</p>
 				</div>
 
-				<div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16'>
+				<div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6 '>
 					{features.map((feature, index) => (
 						<Card
 							key={index}

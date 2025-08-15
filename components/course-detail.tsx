@@ -49,7 +49,7 @@ function CourseDetailSkeleton() {
 	return (
 		<div className='min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900'>
 			<Header />
-			<div className='container mx-auto px-4 py-8 mt-20'>
+			<div className='container mx-auto px-6 py-8 mt-20'>
 				<div className='flex items-center gap-2 mb-6'>
 					<Skeleton className='h-4 w-4' />
 					<Skeleton className='h-4 w-20' />
@@ -100,7 +100,7 @@ export default function CourseDetailPage({ course }: CourseDetailPageProps) {
 		<div className=''>
 			<Header />
 
-			<div className='container mx-auto px-4 py-8 mt-20'>
+			<div className='container mx-auto px-6 py-8 mt-20'>
 				<nav className='flex items-center gap-2 text-sm mb-8 p-4 rounded-xl bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border border-white/20 shadow-sm'>
 					<Link
 						href='/'

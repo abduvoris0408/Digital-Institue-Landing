@@ -70,7 +70,7 @@ export default function Partners() {
 			ref={sectionRef}
 			className='py-20 bg-gradient-to-br from-purple-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900'
 		>
-			<div className='container mx-auto px-4'>
+			<div className='container mx-auto px-6'>
 				<div className='text-center mb-16'>
 					<div
 						className={`inline-flex items-center gap-2 px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium border border-purple-400 ${
