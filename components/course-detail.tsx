@@ -86,7 +86,7 @@ function CourseDetailSkeleton() {
 export default function CourseDetailPage({ course }: CourseDetailPageProps) {
 	const [loading, setLoading] = useState(true)
 
-	// Simulate loading
+
 	useState(() => {
 		const timer = setTimeout(() => setLoading(false), 1500)
 		return () => clearTimeout(timer)
@@ -175,10 +175,9 @@ export default function CourseDetailPage({ course }: CourseDetailPageProps) {
 							</div>
 						</div>
 
-						{/* Course Description */}
 						<Card className='backdrop-blur-sm bg-white/80 dark:bg-slate-800/80 border-white/20'>
 							<CardHeader>
-								<CardTitle className='flex items-center gap-2'>
+								<CardTitle className='flex mt-5 items-center gap-2'>
 									<BookOpen className='h-5 w-5 text-blue-600' />
 									Modul haqida
 								</CardTitle>
@@ -193,7 +192,7 @@ export default function CourseDetailPage({ course }: CourseDetailPageProps) {
 						{/* Course Objectives */}
 						<Card className='backdrop-blur-sm bg-white/80 dark:bg-slate-800/80 border-white/20'>
 							<CardHeader>
-								<CardTitle className='flex items-center gap-2'>
+								<CardTitle className='flex mt-5 items-center gap-2'>
 									<Target className='h-5 w-5 text-green-600' />
 									Kurs maqsadlari
 								</CardTitle>
@@ -220,7 +219,7 @@ export default function CourseDetailPage({ course }: CourseDetailPageProps) {
 						{/* Course Modules */}
 						<Card className='backdrop-blur-sm bg-white/80 dark:bg-slate-800/80 border-white/20'>
 							<CardHeader>
-								<CardTitle>Kurs modullari</CardTitle>
+								<CardTitle className='mt-5'>Kurs modullari</CardTitle>
 							</CardHeader>
 							<CardContent className='space-y-4'>
 								{course.modules.map((module, index) => (
@@ -261,7 +260,7 @@ export default function CourseDetailPage({ course }: CourseDetailPageProps) {
 					{/* Sidebar */}
 					<div className='space-y-6'>
 						{/* Course Hero Image */}
-						<Card className='overflow-hidden backdrop-blur-sm bg-white/80 dark:bg-slate-800/80 border-white/20'>
+						<div className='border overflow-hidden backdrop-blur-sm bg-white/80 dark:bg-slate-800/80 border-black rounded-2xl'>
 							<div className='relative h-48 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700'>
 								<Image
 									width={400}
@@ -282,10 +281,10 @@ export default function CourseDetailPage({ course }: CourseDetailPageProps) {
 									</div>
 								</div>
 							</div>
-						</Card>
+						</div>
 
 						{/* Course Info */}
-						<Card className='backdrop-blur-sm bg-white/80 dark:bg-slate-800/80 border-white/20'>
+						<div className='backdrop-blur-sm border bg-white/80 dark:bg-slate-800/80 border-slate-200 rounded-2xl shadow-sm'>
 							<CardContent className='p-6 space-y-4'>
 								<div className='flex items-center justify-between'>
 									<span className='text-sm text-muted-foreground'>
@@ -338,7 +337,7 @@ export default function CourseDetailPage({ course }: CourseDetailPageProps) {
 									</span>
 								</div>
 							</CardContent>
-						</Card>
+						</div>
 
 						{/* Enroll Button */}
 						<Button

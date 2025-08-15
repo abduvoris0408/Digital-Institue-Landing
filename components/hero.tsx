@@ -85,13 +85,13 @@ export default function Hero() {
 	return (
 		<section
 			id='hero'
-			className='relative min-h-screen flex items-center justify-center overflow-hidden pt-20'
+			className='relative min-h-screen flex items-center justify-center overflow-hidden pt-22 lg:pt-20'
 		>
 			<div className='absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20' />
 
 			<div className='container mx-auto px-6 relative z-10'>
 				<div className='grid lg:grid-cols-2 gap-12 items-center'>
-					<MotionWrapper animation='fade-in' delay={0.2}>
+					<MotionWrapper animation='fade-in' delay={0.4}>
 						<div className='space-y-6'>
 							<div className='inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium mb-4'>
 								{heroContent.badge}

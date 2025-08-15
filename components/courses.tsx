@@ -7,85 +7,68 @@ import { coursesData } from '@/lib/course-data'
 import { ArrowRight, Clock, Star, Users } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
 
 export default function Courses() {
-	const [isVisible, setIsVisible] = useState(false)
-	const sectionRef = useRef<HTMLElement>(null)
+	const fallbackImages = [
+		'/coursecard1.jpg',
+		'/coursecard2.png',
+		'/coursecard5.jpg',
+		'/coursecard4.webp',
+		'/coursecard5.png',
+		'/coursecard6.png',
+		'/coursecard7.png',
+		'/coursecard8.png',
+	]
 
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				if (entry.isIntersecting) setIsVisible(true)
-			},
-			{ threshold: 0.1 }
-		)
-		if (sectionRef.current) observer.observe(sectionRef.current)
-		return () => observer.disconnect()
-	}, [])
-
-	const showcaseItems = coursesData.map((course, index) => ({
+	const items = coursesData.map((course, index) => ({
 		id: course.id,
 		title: course.title,
 		description: (course.description || '').slice(0, 160) + '…',
-		image: '/coursecard1.png', // public/ ichida bo‘lsin
+		image: course.image || fallbackImages[index % fallbackImages.length],
 		category: course.category,
-		students: course.students || Math.floor(Math.random() * 300) + 50,
-		rating: Number((course.rating ?? 4.6 + Math.random() * 0.3).toFixed(1)),
-		duration: course.duration,
+		students: course.students ?? 0,
+		rating: Number((course.rating ?? 4.6).toFixed(1)),
+		duration: course.duration || '',
 		level:
-			index % 3 === 0
+			course.level ||
+			(index % 3 === 0
 				? "Boshlang'ich"
 				: index % 3 === 1
 				? "O'rta"
-				: "Ilg'or",
+				: "Ilg'or"),
 		instructor: course.instructor,
+		slug: course.slug,
 	}))
 
 	return (
 		<section
 			id='courses'
-			ref={sectionRef}
 			className='py-20 bg-gray-50/50 dark:bg-gray-900/30'
 		>
 			<div className='container mx-auto px-6'>
 				<div className='text-center mb-16'>
-					<h2
-						className={`text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 ${
-							isVisible ? 'animate-fade-in' : 'opacity-0'
-						}`}
-					>
+					<h2 className='text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6'>
 						Bizning kurslarimiz
 					</h2>
-					<p
-						className={`text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto mb-8 ${
-							isVisible ? 'animate-fade-in' : 'opacity-0'
-						}`}
-						style={{ animationDelay: '0.1s' }}
-					>
+					<p className='text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto mb-8'>
 						Zamonaviy yuridik bilimlar va professional ko‘nikmalarni
 						rivojlantirish uchun maxsus ishlab chiqilgan kurslar
 						to‘plami
 					</p>
 				</div>
 
-				{/* Responsive grid: 1 / 2 / 3 / 4 ustun */}
 				<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 mb-16'>
-					{showcaseItems.map((item, index) => (
+					{items.map((item, index) => (
 						<Card
 							key={item.id}
-							className={`group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white dark:bg-gray-800 rounded-2xl flex flex-col h-full ${
-								isVisible ? 'animate-fade-in' : 'opacity-0'
-							}`}
-							style={{ animationDelay: `${0.06 * (index + 1)}s` }}
+							className='group relative overflow-hidden border-0  hover:shadow-xl transition-all duration-500 bg-white dark:bg-gray-800 rounded-2xl flex flex-col h-full'
 						>
-							{/* Rasm (16:9) */}
 							<div className='relative w-full aspect-video overflow-hidden'>
 								<Image
-									src={item.image || '/placeholder.svg'}
+									src={item.image}
 									alt={item.title}
 									fill
-									priority={index < 4}
+									priority={index < 2}
 									sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw'
 									className='object-cover transition-transform duration-500 group-hover:scale-105'
 								/>
@@ -100,8 +83,7 @@ export default function Courses() {
 								</div>
 							</div>
 
-							{/* Kontent */}
-							<CardContent className='p-6 flex flex-col flex-1'>
+							<CardContent className=' flex flex-col flex-1'>
 								<h3 className='text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2'>
 									{item.title}
 								</h3>
@@ -142,12 +124,7 @@ export default function Courses() {
 				</div>
 
 				{/* CTA */}
-				<div
-					className={`text-center ${
-						isVisible ? 'animate-fade-in' : 'opacity-0'
-					}`}
-					style={{ animationDelay: '0.9s' }}
-				>
+				<div className='text-center'>
 					<div className='bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden'>
 						<div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=800')] opacity-10" />
 						<div className='relative z-10'>
@@ -158,9 +135,9 @@ export default function Courses() {
 								</span>
 							</h3>
 							<p className='text-base md:text-xl mb-6 md:mb-8 opacity-90 max-w-2xl mx-auto'>
-								150+ dan ortiq kurslar, 1000+ muvaffaqiyatli
-								bitiruvchilar va davlat tomonidan tan olingan
-								sertifikatlar
+								Kurslarni o‘rganing, yangi ko‘nikmalarni
+								egallang va yuridik sohada muvaffaqiyatga
+								erishing!
 							</p>
 							<div className='flex flex-col sm:flex-row gap-3 md:gap-4 justify-center'>
 								<Button

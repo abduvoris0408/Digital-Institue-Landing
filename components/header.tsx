@@ -40,6 +40,10 @@ export default function Header() {
 	const { theme, setTheme } = useTheme()
 	const router = useRouter()
 	const pathname = usePathname()
+	const [mounted, setMounted] = useState(false)
+	useEffect(() => {
+		setMounted(true)
+	}, [])
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -534,27 +538,42 @@ export default function Header() {
 											: 'bg-gray-200 dark:bg-gray-700'
 									}`}
 								>
-									<button
-										onClick={() => setTheme('light')}
-										className={`p-2 rounded-full transition-all duration-300 hover-scale ${
-											theme === 'light'
-												? 'bg-white shadow-md text-yellow-500'
-												: 'text-gray-400 hover:text-gray-600'
-										}`}
-									>
-										<Sun className='w-4 h-4' />
-									</button>
+									{mounted ? (
+										<>
+											<button
+												onClick={() =>
+													setTheme('light')
+												}
+												className={`p-2 rounded-full transition-all duration-300 hover-scale ${
+													theme === 'light'
+														? 'bg-white shadow-md text-yellow-500'
+														: 'text-gray-400 hover:text-gray-600'
+												}`}
+											>
+												<Sun className='w-4 h-4' />
+											</button>
 
-									<button
-										onClick={() => setTheme('dark')}
-										className={`p-2 rounded-full transition-all duration-300 hover-scale ${
-											theme === 'dark'
-												? 'bg-gray-800 shadow-md text-blue-400'
-												: 'text-gray-400 hover:text-gray-600'
-										}`}
-									>
-										<Moon className='w-4 h-4' />
-									</button>
+											<button
+												onClick={() => setTheme('dark')}
+												className={`p-2 rounded-full transition-all duration-300 hover-scale ${
+													theme === 'dark'
+														? 'bg-gray-800 shadow-md text-blue-400'
+														: 'text-gray-400 hover:text-gray-600'
+												}`}
+											>
+												<Moon className='w-4 h-4' />
+											</button>
+										</>
+									) : (
+										<>
+											<button className='p-2 rounded-full transition-all duration-300 hover-scale text-gray-400 hover:text-gray-600'>
+												<Sun className='w-4 h-4' />
+											</button>
+											<button className='p-2 rounded-full transition-all duration-300 hover-scale text-gray-400 hover:text-gray-600'>
+												<Moon className='w-4 h-4' />
+											</button>
+										</>
+									)}
 								</div>
 							</Tooltip>
 

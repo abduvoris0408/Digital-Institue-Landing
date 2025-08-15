@@ -140,7 +140,7 @@ export default function About() {
 					{features.map((feature, index) => (
 						<Card
 							key={index}
-							className={`card-hover border-0 shadow-lg glass-morphism backdrop-blur-sm hover:shadow-2xl transition-all duration-500 ${
+							className={`card-hover border-0  glass-morphism backdrop-blur-sm hover:shadow-md transition-all duration-500 ${
 								isVisible ? 'animate-slide-up' : 'opacity-0'
 							}`}
 							style={{ animationDelay: `${0.1 * (index + 1)}s` }}

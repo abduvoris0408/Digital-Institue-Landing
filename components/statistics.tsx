@@ -134,12 +134,12 @@ export default function Statistics() {
 						</Button>
 					</div>
 
-					{/* Statistics Grid */}
+					
 					<div className='grid grid-cols-2 gap-6'>
 						{stats.map((stat, index) => (
 							<Card
 								key={index}
-								className={`card-hover border-0 shadow-lg ${
+								className={`card-hover border-0 bg-white/30 backdrop:backdrop-blur-2xl ${
 									isVisible ? 'animate-scale-in' : 'opacity-0'
 								}`}
 								style={{
