@@ -206,7 +206,7 @@ export default function FAQ() {
 					))}
 				</div>
 
-				<div className='max-w-4xl mx-auto'>
+				<div className=''>
 					<Accordion type='single' collapsible className='space-y-4'>
 						{filteredFAQs.map((item, index) => (
 							<AccordionItem
@@ -251,7 +251,7 @@ export default function FAQ() {
 				</div>
 
 				<div className='mt-20 text-center'>
-					<div className='bg-gradient-to-r from-blue-600  to-blue-400 rounded-2xl p-4 lg:p-8 text-white max-w-4xl mx-auto shadow-xl'>
+					<div className='bg-gradient-to-r from-blue-600  to-blue-400 rounded-2xl p-4 lg:p-8 text-white  mx-auto shadow-xl'>
 						<div className='bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6'>
 							<HelpCircle className='w-8 h-8 animate-pulse' />
 						</div>

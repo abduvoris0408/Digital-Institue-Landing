@@ -121,6 +121,10 @@ export default function Specialists() {
 							<div className='flex items-center justify-center sm:justify-between mb-3 sm:mb-4'>
 								<div className='flex items-center gap-1'>
 									<Star className='w-3 h-3 sm:w-4 sm:h-4 text-yellow-500 fill-current' />
+									<Star className='w-3 h-3 sm:w-4 sm:h-4 text-yellow-500 fill-current' />
+									<Star className='w-3 h-3 sm:w-4 sm:h-4 text-yellow-500 fill-current' />
+									<Star className='w-3 h-3 sm:w-4 sm:h-4 text-yellow-500 fill-current' />
+									<Star className='w-3 h-3 sm:w-4 sm:h-4 text-yellow-500 fill-current' />
 									<span className='font-semibold text-sm text-gray-900 dark:text-white'>
 										{s.rating}
 									</span>
