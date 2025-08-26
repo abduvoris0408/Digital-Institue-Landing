@@ -15,6 +15,19 @@ interface Specialist {
 
 const specialists: Specialist[] = [
 	{
+		id: 3,
+		name: 'Xursanov Rustam Xolmuratovich',
+		position: 'Institut direktorning birinchi o`rinbosari',
+		rating: 5,
+		image: '/xursanovrustam.jpg',
+		certificates: [
+			'Yuridik fanlar doktori',
+			'Arbitraj sudyasi',
+			'Notarius',
+		],
+		description: 'Yuqori tajribaga ega mutaxassis',
+	},
+	{
 		id: 1,
 		name: 'Fayziev Xayriddin Sirojiddinovich',
 		position: 'Pedagoglar markazi mudiri',
@@ -40,19 +53,7 @@ const specialists: Specialist[] = [
 		],
 		description: 'Yuqori tajribaga ega mutaxassis',
 	},
-	{
-		id: 3,
-		name: 'Xursanov Rustam Xolmuratovich',
-		position: 'Institut direktorning birinchi o`rinbosari',
-		rating: 5,
-		image: '/xursanovrustam.jpg',
-		certificates: [
-			'Yuridik fanlar doktori',
-			'Arbitraj sudyasi',
-			'Notarius',
-		],
-		description: 'Yuqori tajribaga ega mutaxassis',
-	},
+
 	{
 		id: 4,
 		name: "Alimov Ro'zman To`ramurodovich",
